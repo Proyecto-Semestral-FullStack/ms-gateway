@@ -6,6 +6,10 @@ spring:
       server:
         webflux:
           routes:
+            - id: auth
+              uri: lb://ms-auth
+              predicates:
+                - Path=/api/auth/**
             - id: usuarios
               uri: lb://ms-usuarios
               predicates:
